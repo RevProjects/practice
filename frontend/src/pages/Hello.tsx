@@ -8,7 +8,7 @@ export default function Hello(){
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        axios.get('http://localhost:8080/hello') // Adjust URL if needed
+        axios.get('http://localhost:8080/hello') 
             .then(response => {
                 setMessage(response.data);
                 setLoading(false);
@@ -21,7 +21,10 @@ export default function Hello(){
 
     return(
         <>
-        <div> {message}</div>
+        {loading && <div>Loading...</div>}
+            {error && <div>{error}</div>}
+            {message && <div>{message}</div>}
+            {!loading && !error && !message && <div>No message available</div>}
         </>
     )
 }
