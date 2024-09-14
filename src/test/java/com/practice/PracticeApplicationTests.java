@@ -2,14 +2,14 @@ package com.practice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Import;
+import org.springframework.test.context.TestPropertySource;
 
-@Import(TestcontainersConfiguration.class)
 @SpringBootTest
-class PracticeApplicationTests {
+@TestPropertySource(locations = "fle:practice/.env")
+public class PracticeApplicationTests {
 
 	@Test
 	void contextLoads() {
+		// This will load the environment from .env
 	}
-
 }
