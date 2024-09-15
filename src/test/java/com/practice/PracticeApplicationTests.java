@@ -5,7 +5,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 
 @SpringBootTest
-@TestPropertySource(locations = "fle:practice/.env")
+@TestPropertySource(locations = "file:practice/.env")
 public class PracticeApplicationTests {
 
 	@Test

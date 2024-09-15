@@ -9,6 +9,9 @@ import org.testcontainers.utility.DockerImageName;
 @TestConfiguration
 public class TestcontainersConfiguration {
 
+	@Value("${SPRING_DATASOURCE_URL}")
+	private String dbURL;
+
 	@Value("${SPRING_DATASOURCE_USERNAME}")
 	private String dbUser;
 
@@ -24,9 +27,9 @@ public class TestcontainersConfiguration {
 
 		// Start the container and set system properties so that Spring Boot picks them up
 		postgres.start();
-
 		System.setProperty("SPRING_DATASOURCE_URL", postgres.getJdbcUrl());
 		System.setProperty("SPRING_DATASOURCE_USERNAME", postgres.getUsername());
+		System.setProperty(("SPRING_DATASOURCE_PASSWORD"), postgres.getPassword());
 		return postgres;
 	}
 }
