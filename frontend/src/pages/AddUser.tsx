@@ -19,12 +19,12 @@ export default function AddUser() {
   
   const save = async () => {
     try {
-      const response = await axiosInstance.post("/user", {
+      const response = await axiosInstance.post("/user/adduser", {
         username: usernameRef.current!.value,
       });
       console.log(response);
       setUserList(response.data);
-      navigate("/");
+      navigate("/user/listusers");
     } catch (error) {
       console.error("Failed to add user:", error);
     }
@@ -71,7 +71,7 @@ export default function AddUser() {
         
         <button>Add User</button>
       </form>
-      <button onClick={() => navigate("/")}>Cancel</button>
+      <button onClick={() => navigate("/user/listusers")}>Cancel</button>
     </>
   );
 }

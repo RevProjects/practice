@@ -23,12 +23,12 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping
+    @GetMapping("/listusers")
     public ResponseEntity<List<User>> getAllUsers() throws Exception {
         return ok(userService.getAllUsers());
     }
 
-    @PostMapping
+    @PostMapping("/adduser")
     public ResponseEntity<Void> addUser(@RequestBody User user) {
         boolean us=userService.saveUser(user);
         if (us) {
